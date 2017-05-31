@@ -12,6 +12,8 @@
 */
 
 Route::get('/', function () {
+		
+	//$img->move(public_path('images/avatar'));
     return view('welcome');
 });
 
@@ -20,3 +22,5 @@ Route::auth();
 Route::get('/home', 'HomeController@index');
 Route::get('/notification', 'NotificationController@index');
 Route::get('/notification/delete/{notif}', 'NotificationController@destroy');
+Route::get('profile','FormController@showForm');
+ Route::post('profile','FormController@ajaxImagePost');
