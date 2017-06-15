@@ -24,3 +24,14 @@ Route::get('/notification', 'NotificationController@index');
 Route::get('/notification/delete/{notif}', 'NotificationController@destroy');
 Route::get('profile','FormController@showForm');
  Route::post('profile','FormController@ajaxImagePost');
+
+ //testing a jax form submission
+ Route::get('/ajax','FormController@ajaxform');
+
+ // Route::post('/ajax',function(){
+ // 	return Request;
+ // })
+ Route::post('/ajax',function(){
+ 	return "hello guys";
+ });
+
