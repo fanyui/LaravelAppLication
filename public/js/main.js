@@ -207,10 +207,15 @@ window.onload = function () {
                 processData: false,
                 contentType: false,
                 mimeType:"multipart/form-data",
+                //destroy the modal when submit is successfulll
                 success: function () {
-                  console.log(formData.get("croppedImage"));
+                  $( '.modal' ).modal( 'hide' ).data( 'bs.modal', null );
+                  alert("Upload success");
+                  console.log("upload success");
                 },
+                //alert an error message asking the user to retry on failure
                 error: function () {
+                  alert("Eroor uploading Please try again");
                   console.log('Upload error');
                 }
               });

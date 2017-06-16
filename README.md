@@ -18,6 +18,12 @@ Still writing the seedings .
 
 When you visit the profile picture and successfully upload and crop a photo, The application create stores the image in public/image directory
 and also create another copy of this same message with dimension 50x50 and stores it in public/images/avater
+you are provided with the uptions on whether to 
+1:zoom in 
+2:zoom out
+3:rotate both left or right
+4:flip horizontal or vertical
+and another option to view the crop of the selected area in a modal before submitting
 
 The app gets all request from /notification base directory and checks if there is a get parameter in te request it extracts the value of te get parameter and uses it to delete a notification with primary key which is the parameter value.
 
