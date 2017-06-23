@@ -195,6 +195,7 @@ window.onload = function () {
               var test = "hey just testing";
 
               var formData = new FormData();
+              //gabbage and email are just dummy variables for test purporses
                
               formData.append("gabbage", test);
               formData.append('croppedImage',name );

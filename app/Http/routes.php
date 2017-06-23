@@ -13,7 +13,6 @@
 
 Route::get('/', function () {
 		
-	//$img->move(public_path('images/avatar'));
     return view('welcome');
 });
 
@@ -28,10 +27,47 @@ Route::get('profile','FormController@showForm');
  //testing a jax form submission
  Route::get('/ajax','FormController@ajaxform');
 
- // Route::post('/ajax',function(){
- // 	return Request;
- // })
  Route::post('/ajax',function(){
  	return "hello guys";
  });
 
+
+
+
+//sitemap begins here
+
+ Route::get('sitemap', function(){
+
+    // create new sitemap object
+    $sitemap = App::make("sitemap");
+
+    // set cache key (string), duration in minutes (Carbon|Datetime|int), turn on/off (boolean)
+    // by default cache is disabled
+
+    //enable cache for 60 minutes
+    $sitemap->setCache('laravel.sitemap', 60);
+    
+    // check if there is cached sitemap and build new only if it is not
+    if (!$sitemap->isCached())
+    {
+         // add item to the sitemap (url, date, priority, freq)
+         $sitemap->add(URL::to('/'), '2012-08-25T20:10:00+02:00', '1.0', 'daily');
+         $sitemap->add(URL::to('profile'), '2012-08-26T12:30:00+02:00', '0.9', 'weekly');
+         $sitemap->add(URL::to('register'), '2012-08-26T12:30:00+02:00', '0.9', 'daily');
+         $sitemap->add(URL::to('login'), '2012-08-26T12:30:00+02:00', '0.9', 'weekly');
+         $sitemap->add(URL::to('logout'), '2012-08-26T12:30:00+02:00', '0.9', 'daily');
+         $sitemap->add(URL::to('notification'), '2012-08-26T12:30:00+02:00', '0.9', 'daily');
+         $sitemap->add(URL::to('ajax'), '2012-08-26T12:30:00+02:00', '0.9', 'monthly');
+         $sitemap->add(URL::to('home'), '2012-08-26T12:30:00+02:00', '0.9', 'daily');
+
+
+
+        
+
+        
+    }
+
+    // show your sitemap (options: 'xml' (default), 'html', 'txt', 'ror-rss', 'ror-rdf')
+    return $sitemap->render('xml');
+
+});
