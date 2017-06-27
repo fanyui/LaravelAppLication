@@ -30,3 +30,7 @@ The app gets all request from /notification base directory and checks if there i
 It not from the root directory because the root directory takes you to a log in page so to escape from loging we use the /notification as base directory for any other request.
 this page will be updated.
 
+#SiteMap
+
+Visite the route /sitemap from the application and you will given the sitemap of the application
+choose any of xml, html, txt etc to view the sitemap

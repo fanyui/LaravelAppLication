@@ -41,10 +41,10 @@ Route::get('profile','FormController@showForm');
     // create new sitemap object
     $sitemap = App::make("sitemap");
 
-    // set cache key (string), duration in minutes (Carbon|Datetime|int), turn on/off (boolean)
+    
     // by default cache is disabled
 
-    //enable cache for 60 minutes
+    //allow the application to  cache for over 60 minutes
     $sitemap->setCache('laravel.sitemap', 60);
     
     // check if there is cached sitemap and build new only if it is not
