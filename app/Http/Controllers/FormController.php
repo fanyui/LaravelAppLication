@@ -6,6 +6,7 @@ use Illuminate\Http\Validator;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image as Photo;
 use App\Http\Requests;
+use App\Events\FileUploadedEvent;
 use App\Image;
 
 class FormController extends Controller
@@ -47,6 +48,8 @@ class FormController extends Controller
 
          //save the remaining properties to the database
        $img->save();
+
+       event(new FileUploadedEvent($img));
  
 
     }
